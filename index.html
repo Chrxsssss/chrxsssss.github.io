@@ -1,0 +1,3703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker2806 | Expert en Cybersécurité & Développement Sécurisé</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #3b82f6;
+            --accent: #00ff88;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --lighter: #ffffff;
+            --gray: #94a3b8;
+            --dark-gray: #475569;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Mode clair */
+        body.light-mode {
+            --dark: #f8fafc;
+            --darker: #e2e8f0;
+            --light: #0f172a;
+            --lighter: #020617;
+            --gray: #475569;
+            --dark-gray: #94a3b8;
+        }
+        
+        /* Typographie améliorée */
+        h1, h2, h3, h4 {
+            color: var(--light);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        h2 span {
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        /* Layout amélioré */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 120px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+        
+        .section-header h2 {
+            white-space: nowrap;
+            margin-right: 20px;
+        }
+        
+        .section-header .line {
+            height: 1px;
+            width: 100%;
+            background: var(--gradient);
+            position: relative;
+            top: -5px;
+        }
+        
+        /* Navigation améliorée */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            box-shadow: 0 5px 20px -5px rgba(2, 6, 23, 0.3);
+        }
+        
+        nav.scrolled {
+            padding: 15px 50px;
+            box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.7);
+        }
+        
+        .logo {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: rotate(15deg);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .nav-links a span {
+            color: var(--primary);
+            margin-right: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+            width: 30px;
+            height: 20px;
+            position: relative;
+        }
+        
+        .menu-btn__burger {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .menu-btn__burger::before,
+        .menu-btn__burger::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .menu-btn__burger::before {
+            transform: translateY(-8px);
+        }
+        
+        .menu-btn__burger::after {
+            transform: translateY(8px);
+        }
+        
+        .menu-btn.open .menu-btn__burger {
+            background: transparent;
+        }
+        
+        .menu-btn.open .menu-btn__burger::before {
+            transform: rotate(45deg);
+        }
+        
+        .menu-btn.open .menu-btn__burger::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 20px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg) scale(1.1);
+            color: var(--accent);
+        }
+
+        /* Search */
+        .search-container {
+            position: relative;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #search-input {
+            padding: 8px 15px;
+            border-radius: 50px;
+            border: 1px solid var(--dark-gray);
+            background: rgba(30, 41, 59, 0.5);
+            color: var(--light);
+            width: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .search-container.active #search-input {
+            width: 200px;
+            opacity: 1;
+            margin-right: 10px;
+        }
+
+        #search-btn {
+            background: transparent;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: var(--darker);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-result {
+            display: block;
+            padding: 10px;
+            color: var(--light);
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .search-result:hover {
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .search-result h5 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .search-result p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Hero Section améliorée */
+        #hero {
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        
+        .hero-subtitle {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-family: 'Fira Code', monospace;
+            display: inline-block;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-desc {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--light);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            color: var(--primary);
+            padding: 18px 30px;
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            margin-right: 20px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -10px rgba(37, 99, 235, 0.4);
+            border-color: transparent;
+        }
+        
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            animation: pulse 2s infinite;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -10px rgba(0, 255, 136, 0.4);
+            animation: none;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -15px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        /* Flèche animée */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--light);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        /* About Section améliorée */
+        #about {
+            position: relative;
+            background-color: var(--darker);
+            overflow: hidden;
+        }
+        
+        #about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-img-container {
+            position: relative;
+            width: 350px;
+            flex-shrink: 0;
+            perspective: 1000px;
+        }
+        
+        .about-img {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .about-img:hover {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+            box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: all 0.5s ease;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(140px, 200px));
+            gap: 10px 20px;
+            margin-top: 20px;
+        }
+        
+        .skills-list li {
+            position: relative;
+            padding-left: 25px;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .skills-list li:hover {
+            color: var(--light);
+            transform: translateX(5px);
+        }
+        
+        .skills-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Skills Bars */
+        .skills-bars {
+            margin-top: 40px;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-info span:first-child {
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .skill-info span:last-child {
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            width: 0;
+        }
+        
+        /* CV Section */
+#cv {
+    background-color: var(--darker);
+    position: relative;
+    overflow: hidden;
+}
+
+.cv-viewer {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.cv-viewer iframe {
+    flex: 2;
+    min-height: 600px; /* Consider using vh or % for better responsiveness */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%; /* added width 100% to help responsiveness*/
+}
+
+.cv-skills {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.cv-skills h3 {
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.cv-skills ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.cv-skills li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    color: var(--gray);
+}
+
+.cv-skills li:before {
+    content: '▹';
+    color: var(--primary);
+    margin-right: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .cv-viewer {
+        flex-direction: column; /* Stack iframe and skills on smaller screens */
+        gap: 20px;
+    }
+    .cv-viewer iframe{
+        min-height: 400px;
+    }
+}
+        
+        /* Timeline améliorée */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 25px;
+            background-color: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(37, 99, 235, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .timeline-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: var(--gradient);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+            box-shadow: 0 0 0 4px var(--darker);
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -11px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -11px;
+        }
+        
+        /* Services Section améliorée */
+        #services {
+            background-color: rgba(15, 23, 42, 0.9);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://files.catbox.moe/6fonyx.jpeg') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            padding: 40px 30px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px -15px rgba(2, 6, 23, 0.5);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -15px rgba(37, 99, 235, 0.4);
+            border-color: transparent;
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .service-icon {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .service-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray);
+        }
+
+        /* Demo Terminal */
+        .demo-container {
+            margin-top: 60px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .demo-terminal {
+            background: var(--darker);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: rgba(15, 23, 42, 0.7);
+            border-bottom: 1px solid var(--dark-gray);
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-btn.red {
+            background: #ff5f56;
+        }
+
+        .terminal-btn.yellow {
+            background: #ffbd2e;
+        }
+
+        .terminal-btn.green {
+            background: #27c93f;
+        }
+
+        .terminal-title {
+            margin-left: 15px;
+            color: var(--gray);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            min-height: 200px;
+            color: var(--light);
+        }
+
+        .terminal-prompt {
+            color: var(--primary);
+        }
+
+        .terminal-cursor {
+            animation: blink 1s infinite;
+        }
+
+        .terminal-input {
+            display: inline;
+            outline: none;
+            border: none;
+            background: transparent;
+            color: var(--light);
+            font-family: 'Fira Code', monospace;
+            width: 70%;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Stats Section améliorée */
+        #stats {
+            background-color: var(--darker);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://files.catbox.moe/5tssqa.jpeg') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            padding: 40px 30px;
+            border-radius: 15px;
+            background-color: rgba(30, 41, 59, 0.7);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 10px 30px -15px rgba(2, 6, 23, 0.5);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.4);
+            border-color: var(--primary);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--light);
+            font-weight: 600;
+        }
+        
+        /* Projects Section améliorée */
+        #projects {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://files.catbox.moe/ia645k.jpeg') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        /* Project Filters */
+        .project-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--dark-gray);
+            color: var(--gray);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
+            box-shadow: 0 15px 35px -15px rgba(2, 6, 23, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) rotateY(5deg) rotateX(2deg) scale(1.02);
+            box-shadow: 0 25px 50px -15px rgba(37, 99, 235, 0.4);
+            border-color: transparent;
+        }
+        
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .project-card:hover .project-content {
+            transform: translateY(-10px);
+        }
+        
+        .project-img-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--lighter);
+        }
+        
+        .project-desc {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .tech-tag {
+            background-color: rgba(37, 99, 235, 0.15);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background-color: rgba(37, 99, 235, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Project Comments */
+        .project-comments {
+            margin-top: 30px;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            padding-top: 20px;
+        }
+
+        .comments-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .comment {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .comment-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid var(--primary);
+        }
+
+        .comment-text {
+            color: var(--light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--dark-gray);
+            border-radius: 8px;
+            color: var(--light);
+            margin-bottom: 10px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .comment-form button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .comment-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(0, 255, 136, 0.5);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .project-links a {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            color: var(--light);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .project-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .project-links a i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .github-btn {
+            text-align: center;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Blog Section */
+        #blog {
+            background-color: var(--darker);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .blog-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.4);
+        }
+
+        .blog-img-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .blog-card:hover .blog-img-container img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .blog-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-date i {
+            margin-right: 8px;
+        }
+
+        .blog-excerpt {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .blog-link {
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-link:hover {
+            color: var(--accent);
+        }
+
+        .blog-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .reading-info {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .reading-time {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .reading-progress {
+            height: 4px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 2px;
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 2px;
+            width: 0;
+        }
+
+        /* Article Full View */
+        .article-full {
+            background: var(--darker);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+            display: none;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .article-full h2 {
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .article-full p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .close-article {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .close-article:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(0, 255, 136, 0.5);
+        }
+        
+        /* Testimonials Section améliorée */
+        #testimonials {
+            background-color: rgba(15, 23, 42, 0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial {
+            background-color: rgba(30, 41, 59, 0.7);
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 15px 35px -15px rgba(2, 6, 23, 0.5);
+            transition: all 0.5s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.4);
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-text::before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial:hover .author-img {
+            transform: rotate(15deg);
+            border-color: var(--accent);
+        }
+        
+        .author-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+        
+        .author-info p {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .testimonial-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--dark-gray);
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-dot::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .testimonial-dot.active {
+            transform: scale(1.2);
+        }
+        
+        .testimonial-dot.active::before {
+            width: 100%;
+        }
+        
+        /* Contact Section améliorée */
+        #contact {
+            text-align: center;
+            background-color: var(--darker);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .contact-title {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-desc {
+            margin: 0 auto 50px;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            padding: 40px 30px;
+            min-width: 280px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 15px 35px -15px rgba(2, 6, 23, 0.5);
+            text-align: center;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -15px rgba(37, 99, 235, 0.4);
+            border-color: var(--primary);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 20px;
+            color: var(--lighter);
+        }
+        
+        .contact-card p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .contact-card a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .contact-card a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(0, 255, 136, 0.5);
+        }
+        
+        .contact-card a i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(30, 41, 59, 0.7);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -15px rgba(37, 99, 235, 0.5);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--light);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 18px 25px;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--dark-gray);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        
+        .form-textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 10px 20px -10px rgba(37, 99, 235, 0.5);
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(0, 255, 136, 0.6);
+        }
+        
+        .submit-btn:hover::before {
+            width: 100%;
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .form-success i {
+            font-size: 5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .form-success h3 {
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .form-success p {
+            color: var(--gray);
+            max-width: 100%;
+        }
+        
+        /* Footer amélioré */
+        footer {
+            text-align: center;
+            padding: 80px 0 40px;
+            background-color: rgba(15, 23, 42, 0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-link {
+            color: var(--light);
+            font-size: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            display: inline-block;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .footer-text {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .footer-credits {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Theme Customizer */
+        .theme-customizer {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transform: translateX(-150%);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-customizer.active {
+            transform: translateX(0);
+        }
+
+        .theme-customizer h4 {
+            color: var(--light);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+            border-color: var(--light);
+        }
+
+        .customizer-toggle {
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Back to Top Button amélioré */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            z-index: 999;
+            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.5);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 15px 40px -10px rgba(0, 255, 136, 0.6);
+        }
+
+        /* Live Chat Button */
+        .live-chat-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 120px;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            z-index: 998;
+            transition: all 0.3s ease;
+        }
+
+        .live-chat-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+        }
+
+        .live-chat-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* AI Chat Interface */
+        .ai-chat-container {
+            position: fixed;
+            bottom: 180px;
+            right: 30px;
+            width: 350px;
+            background: var(--darker);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 997;
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .ai-chat-container.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .ai-chat-header {
+            padding: 15px 20px;
+            background: rgba(15, 23, 42, 0.7);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-chat-header h3 {
+            margin: 0;
+            color: var(--light);
+        }
+
+        .ai-chat-close {
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .ai-chat-messages {
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .ai-message, .user-message {
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 80%;
+        }
+
+        .ai-message {
+            background: rgba(30, 41, 59, 0.5);
+            color: var(--light);
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background: var(--gradient);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .ai-chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .ai-chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--dark-gray);
+            border-radius: 50px;
+            color: var(--light);
+            outline: none;
+        }
+
+        .ai-chat-input button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chat-input button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark);
+            border-left: 4px solid var(--primary);
+            color: var(--light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 350px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .notification-success {
+            border-left-color: var(--accent);
+        }
+
+        .notification-error {
+            border-left-color: #ef4444;
+        }
+
+        .notification-info {
+            border-left-color: #3b82f6;
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .notification-content i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .notification-close {
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .notification-close:hover {
+            color: var(--light);
+        }
+        
+        /* Animations personnalisées */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Effets de particules */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+        
+        /* Responsive amélioré */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            section {
+                padding: 100px 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img-container {
+                margin: 0 auto 40px;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .contact-options {
+                gap: 20px;
+            }
+            
+            .contact-card {
+                min-width: 240px;
+            }
+
+            .cv-viewer {
+                flex-direction: column;
+            }
+
+            .cv-viewer iframe {
+                width: 100%;
+                min-height: 400px;
+            }
+
+            .live-chat-btn {
+                right: 20px;
+                bottom: 100px;
+            }
+
+            .ai-chat-container {
+                right: 20px;
+                bottom: 170px;
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+            }
+            
+            nav.scrolled {
+                padding: 10px 20px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+                backdrop-filter: blur(20px);
+                background-color: rgba(15, 23, 42, 0.95);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 25px 0;
+            }
+            
+            .menu-btn {
+                display: block;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section-header .line {
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .btn {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .footer-links {
+                gap: 25px;
+            }
+            
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 30px;
+                right: 30px;
+            }
+
+            .theme-customizer {
+                bottom: 80px;
+                left: 20px;
+            }
+
+            .ai-chat-container {
+                width: 280px;
+                right: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card, .contact-card {
+                padding: 30px 20px;
+                min-width: 100%;
+            }
+            
+            .stat-item {
+                padding: 30px 20px;
+            }
+            
+            .testimonial {
+                padding: 30px 20px;
+            }
+            
+            .contact-form {
+                padding: 25px 20px;
+            }
+            
+            .footer-links {
+                gap: 20px;
+            }
+            
+            .footer-link {
+                font-size: 1.8rem;
+            }
+
+            .live-chat-btn {
+                right: 10px;
+                bottom: 90px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .live-chat-btn span {
+                display: none;
+            }
+
+            .ai-chat-container {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Effet de particules -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="https://files.catbox.moe/vlhfax.jpeg" alt="Hacker2806 Logo">
+            Hacker2806
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero"><span>01.</span> Accueil</a></li>
+            <li><a href="#about"><span>02.</span> À propos</a></li>
+            <li><a href="#cv"><span>03.</span> Mon CV</a></li>
+            <li><a href="#services"><span>04.</span> Services</a></li>
+            <li><a href="#projects"><span>05.</span> Projets</a></li>
+            <li><a href="#blog"><span>06.</span> Blog</a></li>
+            <li><a href="#contact"><span>07.</span> Contact</a></li>
+        </ul>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Rechercher...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+            <div class="search-results" id="search-results"></div>
+        </div>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="menu-btn">
+            <div class="menu-btn__burger"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle animate__animated animate__fadeInDown">Bonjour, je suis</p>
+                <h1 class="hero-title animate__animated animate__fadeIn">Hacker2806</h1>
+                <h2 class="hero-desc animate__animated animate__fadeIn animate__delay-1s">Expert en Cybersécurité & Développement Sécurisé</h2>
+                <p class="animate__animated animate__fadeIn animate__delay-1s">Je protège les entreprises contre les cybermenaces tout en développant des solutions technologiques robustes. Avec une approche offensive pour une défense impénétrable.</p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary animate__animated animate__fadeIn animate__delay-2s"><i class="fas fa-paper-plane"></i> Contactez-moi</a>
+                    <a href="#projects" class="btn animate__animated animate__fadeIn animate__delay-2s"><i class="fas fa-code"></i> Voir mes projets</a>
+                    <a href="/cv-hacker2806.pdf" class="btn animate__animated animate__fadeIn animate__delay-2s" id="download-cv" download><i class="fas fa-file-download"></i> Télécharger mon CV</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down animate__animated animate__bounce animate__infinite">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>01.</span> À propos de moi</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-img-container">
+                    <div class="about-img">
+                        <img src="https://files.catbox.moe/n6eh76.jpeg" alt="Hacker2806">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Je suis un hacker éthique certifié et développeur full-stack avec quelque année d'expérience dans la sécurisation des systèmes d'information. Mon expertise couvre l'ensemble du spectre de la cybersécurité, du pentesting au développement sécurisé.</p>
+                    <p>Après avoir débuté comme consultant en sécurité pour des institutions financières, j'ai fondé ma propre agence de cybersécurité où j'accompagne les entreprises dans la protection de leurs actifs numériques.</p>
+                    <p>Ma double compétence en hacking et développement me permet d'anticiper les vulnérabilités dès la phase de conception, garantissant des solutions à la fois performantes et sécurisées.</p>
+                    <p>Technologies et méthodologies maîtrisées :</p>
+                    <ul class="skills-list">
+                        <li>Tests d'intrusion (OSCP, CEH)</li>
+                        <li>Python (Django, Flask)</li>
+                        <li>JavaScript (React, Node.js)</li>
+                        <li>PHP (Laravel, Symfony)</li>
+                        <li>Sécurité des réseaux</li>
+                        <li>Analyse forensic</li>
+                        <li>Cryptographie avancée</li>
+                        <li>Bases de données (SQL/NoSQL)</li>
+                        <li>DevOps & Sécurité Cloud</li>
+                        <li>Reverse Engineering</li>
+                        <li>Malware Analysis</li>
+                        <li>Blockchain Security</li>
+                    </ul>
+
+                    <!-- Skills Bars -->
+                    <div class="skills-bars">
+                        <h3>Mes Compétences Techniques</h3>
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>Pentesting</span>
+                                <span>99%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="99"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>Sécurité Web</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>Développement Sécurisé</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-info">
+                                <span>Cryptographie</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Section -->
+            <div class="section-header" style="margin-top: 80px;">
+                <h2><span>02.</span> Mon Parcours</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - 2025</div>
+                        <h3 class="timeline-title">Débuts en Sécurité Informatique</h3>
+                        <p class="timeline-desc">Formation intensive en cybersécurité et premiers projets de sécurisation d'applications web pour des startups.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - 2025</div>
+                        <h3 class="timeline-title">Consultant en Sécurité</h3>
+                        <p class="timeline-desc">Audits de sécurité et tests d'intrusion pour des institutions financières en Europe.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2025</div>
+                        <h3 class="timeline-title">Responsable Sécurité</h3>
+                        <p class="timeline-desc">Gestion de la sécurité pour une entreprise technologique de 200 employés.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025 - Présent</div>
+                        <h3 class="timeline-title">Fondateur de Hacker2806 Security</h3>
+                        <p class="timeline-desc">Création de mon agence spécialisée en cybersécurité et développement sécurisé.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>03.</span> Mon CV</h2>
+                <div class="line"></div>
+            </div>
+    
+            <div class="cv-viewer">
+                <img src="https://files.catbox.moe/ctqoma.jpeg" alt="CV Hacker2806" style="width:100%; height:auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+                <div class="cv-skills">
+                    <h3>Compétences Clés</h3>
+                    <ul>
+                        <li>Tests d'intrusion (OSCP)</li>
+                        <li>Analyse de malware</li>
+                        <li>Sécurité des réseaux</li>
+                        <li>Développement sécurisé</li>
+                        <li>Cryptographie appliquée</li>
+                        <li>Forensique numérique</li>
+                        <li>Sécurité des APIs</li>
+                        <li>Cloud Security</li>
+                        <li>Développement Web</li>
+                        <li>IT Manager</li>
+                        <li>Network Analysis</li>
+                    </ul>
+                    <a href="/cv-hacker2806.pdf" download class="btn btn-primary">
+                        <i class="fas fa-download"></i> Télécharger le CV complet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>04.</span> Mes Services</h2>
+                <div class="line"></div>
+            </div>
+            <p>Je propose une gamme complète de services en cybersécurité et développement pour protéger et optimiser vos systèmes et proteger vos Business.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="service-title">Tests d'intrusion avancés</h3>
+                    <p class="service-desc">Évaluation offensive de vos systèmes pour identifier et corriger les vulnérabilités avant qu'elles ne soient exploitées par des acteurs malveillants.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-lock"></i></div>
+                    <h3 class="service-title">Développement Sécurisé</h3>
+                    <p class="service-desc">Conception et développement d'applications avec une approche "security by design" pour éliminer les vulnérabilités courantes dès la phase de codage.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3 class="service-title">Audit de Sécurité Complet</h3>
+                    <p class="service-desc">Analyse approfondie de votre infrastructure, applications et processus pour détecter les failles et recommander des mesures correctives.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 class="service-title">Formation en Sécurité</h3>
+                    <p class="service-desc">Programmes de formation personnalisés pour votre équipe sur les bonnes pratiques de sécurité, la détection de menaces et la réponse aux incidents.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="service-title">Reverse Engineering</h3>
+                    <p class="service-desc">Analyse de logiciels malveillants et de binaires pour comprendre leur fonctionnement et développer des contre-mesures efficaces.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="service-title">Sécurité des Réseaux</h3>
+                    <p class="service-desc">Configuration et optimisation des pare-feu, IDS/IPS, VPN et autres dispositifs de sécurité réseau pour une protection maximale.</p>
+                </div>
+            </div>
+
+            <!-- Demo Terminal -->
+            <div class="demo-container">
+                <h3>Démo Interactive</h3>
+                <p>Essayez notre simulateur de test d'intrusion basique</p>
+                <div class="demo-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-btn red"></span>
+                            <span class="terminal-btn yellow"></span>
+                            <span class="terminal-btn green"></span>
+                        </div>
+                        <div class="terminal-title">Root@hacker2806:~</div>
+                    </div>
+                    <div class="terminal-body" id="terminal-output">
+                        <p>Bienvenue dans le simulateur de pentest. Tapez 'help' pour voir les commandes disponibles.</p>
+                        <p class="terminal-prompt">> <span class="terminal-input" contenteditable="true"></span><span class="terminal-cursor">_</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projets Sécurisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Ans d'Expérience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Clients Satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Taux de Réussite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>05.</span> Mes Projets Open Source.</h2>
+                <div class="line"></div>
+            </div>
+            <p>Découvrez mes contributions open source en cybersécurité et développement sécurisé disponibles sur GitHub.</p>
+            
+            <!-- Project Filters -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="security">Sécurité</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="tools">Outils</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="security">
+                    <div class="project-img-container">
+                        <img src="https://files.catbox.moe/5tssqa.jpeg" class="project-img" alt="DEDSEC Tracker">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DEDSEC Tracker</h3>
+                        <p class="project-desc">Outil avancé de suivi d'adresses IP avec géolocalisation et informations détaillées sur les hôtes.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">Géolocalisation</span>
+                            <span class="tech-tag">Cyberinvestigation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Topherblood/IP-Tracker" target="_blank"><i class="fas fa-external-link-alt"></i> Voir le projet</a>
+                            <a href="https://github.com/hacker2806-maker/IP-Tracker" target="_blank"><i class="fab fa-github"></i> Code Source</a>
+                        </div>
+
+                        <!-- Project Comments -->
+                        <div class="project-comments">
+                            <h4>Commentaires</h4>
+                            <div class="comments-list">
+                                <div class="comment">
+                                    <div class="comment-author">
+                                        <img src="https://files.catbox.moe/5tssqa.jpeg" alt="User">
+                                        <span>Jean Dupont</span>
+                                    </div>
+                                    <div class="comment-text">Excellent outil pour les investigations numériques. Très précis et facile à utiliser.</div>
+                                    <div class="comment-date">15 juin 2025</div>
+                                </div>
+                            </div>
+                            <form class="comment-form">
+                                <textarea placeholder="Ajouter un commentaire..." required></textarea>
+                                <button type="submit">Envoyer</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="security">
+                    <div class="project-img-container">
+                        <img src="https://files.catbox.moe/ctqoma.jpeg" class="project-img" alt="Vulnerability Scanner">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Vulnerability Scanner</h3>
+                        <p class="project-desc">Scanner automatisé de vulnérabilités pour applications web avec détection des failles courantes.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Sécurité Web</span>
+                            <span class="tech-tag">OWASP</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Topherblood/Vulnerability-Scanner" target="_blank"><i class="fas fa-external-link-alt"></i> Voir le projet</a>
+                            <a href="https://github.com/Topherblood/Vulnerability-Scanner" target="_blank"><i class="fab fa-github"></i> Code Source</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-img-container">
+                        <img src="https://files.catbox.moe/us3869.jpeg" class="project-img" alt="Secure Chat App">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Secure Chat App</h3>
+                        <p class="project-desc">Application de messagerie chiffrée de bout en bout avec authentification forte.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">WebSockets</span>
+                            <span class="tech-tag">AES-256</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Topherblood/Secure-Chat-App" target="_blank"><i class="fas fa-external-link-alt"></i> Voir le projet</a>
+                            <a href="https://github.com/hacker2806/Secure-Chat-App" target="_blank"><i class="fab fa-github"></i> Code Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="tools">
+                    <div class="project-img-container">
+                        <img src="https://files.catbox.moe/wqycjh.jpeg" class="project-img" alt="Password Manager">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Password Manager</h3>
+                        <p class="project-desc">Gestionnaire de mots de passe sécurisé avec chiffrement AES-256 et authentification à deux facteurs.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Cryptographie</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">2FA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Topherblood/Password-Manager" target="_blank"><i class="fas fa-external-link-alt"></i> Voir le projet</a>
+                            <a href="https://github.com/Topherblood/Password-Manager" target="_blank"><i class="fab fa-github"></i> Code Source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="github-btn">
+                <a href="https://github.com/Topherblood" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> Voir tous mes projets sur GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>06.</span> Mon Blog Technique</h2>
+                <div class="line"></div>
+            </div>
+            <p>Découvrez mes articles sur la cybersécurité, le développement et les dernières tendances technologiques.</p>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img-container">
+                        <img src="https://files.catbox.moe/wqycjh.jpeg" alt="Article 1">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Les 10 vulnérabilités les plus critiques en 2025</h3>
+                        <p class="blog-date"><i class="far fa-calendar-alt"></i> 15 Avril 2025 • 8 min de lecture</p>
+                        <p class="blog-excerpt">Analyse des principales menaces en cybersécurité cette année, avec des exemples concrets et des stratégies de mitigation pour protéger vos systèmes contre ces attaques.</p>
+                        <div class="blog-link" data-article="article1">Lire l'article <i class="fas fa-arrow-right"></i></div>
+                        <div class="reading-info">
+                            <span class="reading-time">8 min de lecture</span>
+                            <div class="reading-progress">
+                                <div class="reading-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img-container">
+                        <img src="https://files.catbox.moe/ia645k.jpeg" alt="Article 2">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Guide complet du Pentesting pour débutants</h3>
+                        <p class="blog-date"><i class="far fa-calendar-alt"></i> 2 mai 2025 • 12 min de lecture</p>
+                        <p class="blog-excerpt">Introduction aux tests d'intrusion : méthodologies, outils essentiels et bonnes pratiques pour commencer dans le domaine du hacking éthique.</p>
+                        <div class="blog-link" data-article="article2">Lire l'article <i class="fas fa-arrow-right"></i></div>
+                        <div class="reading-info">
+                            <span class="reading-time">12 min de lecture</span>
+                            <div class="reading-progress">
+                                <div class="reading-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img-container">
+                        <img src="https://files.catbox.moe/6fonyx.jpeg" alt="Article 3">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Sécuriser une API REST avec Node.js</h3>
+                        <p class="blog-date"><i class="far fa-calendar-alt"></i> 20 avril 2025 • 10 min de lecture</p>
+                        <p class="blog-excerpt">Tutoriel pratique pour implémenter des mesures de sécurité robustes dans vos APIs Node.js : JWT, rate limiting, CORS, etc.</p>
+                        <div class="blog-link" data-article="article3">Lire l'article <i class="fas fa-arrow-right"></i></div>
+                        <div class="reading-info">
+                            <span class="reading-time">10 min de lecture</span>
+                            <div class="reading-progress">
+                                <div class="reading-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Full Content -->
+            <div class="article-full" id="article1">
+                <h2>Les 10 vulnérabilités les plus critiques en 2025</h2>
+                <p>En 2025, le paysage des cybermenaces continue d'évoluer rapidement. Voici les 10 vulnérabilités les plus critiques que les professionnels de la sécurité doivent connaître :</p>
+                
+                <h3>1. Attaques par IA générative</h3>
+                <p>Les outils d'IA générative permettent maintenant à des attaquants peu qualifiés de créer des campagnes de phishing hautement personnalisées et difficiles à détecter.</p>
+                
+                <h3>2. Vulnérabilités zero-day dans les frameworks IoT</h3>
+                <p>Avec l'explosion des appareils connectés, les failles zero-day dans les frameworks IoT sont devenues une cible privilégiée.</p>
+                
+                <h3>3. Failles dans les chaînes d'approvisionnement logicielles</h3>
+                <p>Les attaques via les dépendances tierces continuent de croître, nécessitant une meilleure surveillance des supply chains.</p>
+                
+                <p>...</p>
+                
+                <button class="close-article">Fermer</button>
+            </div>
+
+            <div class="article-full" id="article2">
+                <h2>Guide complet du Pentesting pour débutants</h2>
+                <p>Ce guide complet vous présentera les fondamentaux du pentesting en 2025...</p>
+                <button class="close-article">Fermer</button>
+            </div>
+
+            <div class="article-full" id="article3">
+                <h2>Sécuriser une API REST avec Node.js</h2>
+                <p>Découvrez les meilleures pratiques pour sécuriser vos APIs Node.js en 2025...</p>
+                <button class="close-article">Fermer</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>07.</span> Témoignages Clients</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"Hacker2806 a sécurisé notre infrastructure bancaire avec une expertise remarquable. Son approche méthodique et sa connaissance approfondie des menaces actuelles ont considérablement renforcé notre posture de sécurité."</p>
+                    <div class="testimonial-author">
+                        <img src="https://files.catbox.moe/ws9abt.jpeg" alt="Client" class="author-img">
+                        <div class="author-info">
+                            <h4>Hackerone</h4>
+                            <p>Directeur Technique, Banque XYZ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Nous avons fait appel à Hacker2806 pour auditer notre application médicale. Non seulement il a identifié des vulnérabilités critiques, mais il a aussi formé notre équipe aux bonnes pratiques de codage sécurisé."</p>
+                    <div class="testimonial-author">
+                        <img src="https://files.catbox.moe/5ufkng.jpeg" alt="Client" class="author-img">
+                        <div class="author-info">
+                            <h4>Cybereason</h4>
+                            <p>CTO, HealthTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"La formation en sensibilisation aux ransomwares dispensée par Hacker2806 a été un tournant pour notre entreprise. Son expertise pratique et ses cas concrets ont permis à nos employés de devenir notre première ligne de défense."</p>
+                    <div class="testimonial-author">
+                        <img src="https://files.catbox.moe/zpxwfz.jpeg" alt="Client" class="author-img">
+                        <div class="author-info">
+                            <h4>Tanium</h4>
+                            <p>DSI, Groupe Industriel ABC</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>08.</span> Contactez-moi</h2>
+                <div class="line"></div>
+            </div>
+            
+            <p class="contact-desc">Je suis disponible pour des missions de freelance, des audits de sécurité ou des collaborations. Contactez-moi directement via les boutons ci-dessous.</p>
+            
+            <div class="contact-options">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WhatsApp</h3>
+                    <p>Contact direct et rapide</p>
+                    <a href="https://wa.me/50943243114" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Envoyer un message</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Instagram</h3>
+                    <p>Suivez mes dernières actualités</p>
+                    <a href="https://www.instagram.com/hacker_elliot2806?igsh=cWQ3MHQ3bTJ3YXR4" class="btn btn-secondary" target="_blank"><i class="fab fa-instagram"></i> Visiter mon profil</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <p>Pour les demandes détaillées</p>
+                    <a href="mailto:augustinchristophervital@gmail.com" class="btn"><i class="fas fa-paper-plane"></i> Envoyer un email</a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Ou envoyez-moi un message directement</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Votre nom</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Votre email</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Sujet</label>
+                        <input type="text" id="subject" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Votre message</label>
+                        <textarea id="message" class="form-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/Topherblood" class="footer-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/hacker2806" class="footer-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/in/hacker2806" class="footer-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/hacker_elliot2806?igsh=cWQ3MHQ3bTJ3YXR4" class="footer-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="footer-text">Conçu et développé avec ❤️ par Hacker2806</p>
+                <p class="footer-text">© 2025 Tous droits réservés</p>
+                <p class="footer-credits">Dernière mise à jour: 15 avril 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Live Chat Button -->
+    <div class="live-chat-btn">
+        <i class="fas fa-comments"></i>
+        <span>Chat en direct</span>
+    </div>
+
+    <!-- AI Chat Interface -->
+    <div class="ai-chat-container">
+        <div class="ai-chat-header">
+            <h3>Assistant Cybersécurité</h3>
+            <button class="ai-chat-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="ai-chat-messages">
+            <div class="ai-message">Bonjour! Je suis votre assistant en cybersécurité. Posez-moi vos questions sur la sécurité informatique.</div>
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" placeholder="Posez votre question...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Theme Customizer -->
+    <div class="theme-customizer">
+        <h4>Personnaliser le thème</h4>
+        <div class="color-options">
+            <div class="color-option" data-color="2563eb" style="background-color: #2563eb;"></div>
+            <div class="color-option" data-color="8b5cf6" style="background-color: #8b5cf6;"></div>
+            <div class="color-option" data-color="ec4899" style="background-color: #ec4899;"></div>
+            <div class="color-option" data-color="f59e0b" style="background-color: #f59e0b;"></div>
+            <div class="color-option" data-color="10b981" style="background-color: #10b981;"></div>
+        </div>
+        <div class="customizer-toggle">
+            <i class="fas fa-palette"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        // Effet de particules
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Taille aléatoire entre 2px et 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Position aléatoire
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Animation aléatoire
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                // Opacité aléatoire
+                particle.style.opacity = Math.random() * 0.2 + 0.1;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('open');
+        });
+        
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtn.classList.remove('open');
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Testimonials Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showTestimonial(index));
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Animation des éléments de la timeline au scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkTimelineItems() {
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemTop < windowHeight - 100) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkTimelineItems);
+        window.addEventListener('load', checkTimelineItems);
+        
+        // Initialisation des particules
+        createParticles();
+
+        // Terminal Demo
+        const terminalOutput = document.getElementById('terminal-output');
+        const commands = {
+            help: "Commandes disponibles: scan, exploit, clear, help",
+            scan: "Scanning network... Found 3 vulnerable hosts",
+            exploit: "Attempting exploit... Success! Gained root access",
+            clear: () => { 
+                terminalOutput.innerHTML = '<p>Bienvenue dans le simulateur de pentest. Tapez \'help\' pour voir les commandes disponibles.</p><p class="terminal-prompt">> <span class="terminal-input" contenteditable="true"></span><span class="terminal-cursor">_</span></p>'; 
+                document.querySelector('.terminal-input').focus();
+            }
+        };
+
+        document.addEventListener('keydown', (e) => {
+            const input = document.querySelector('.terminal-input');
+            
+            if (e.key === 'Enter' && input) {
+                const cmd = input.textContent.toLowerCase();
+                
+                if (cmd) {
+                    let response = commands[cmd];
+                    if (typeof response === 'function') {
+                        response();
+                    } else if (response) {
+                        terminalOutput.innerHTML += `<p>> ${cmd}</p><p>${response}</p>`;
+                        terminalOutput.innerHTML += '<p class="terminal-prompt">> <span class="terminal-input" contenteditable="true"></span><span class="terminal-cursor">_</span></p>';
+                    } else {
+                        terminalOutput.innerHTML += `<p>> ${cmd}</p><p>Commande inconnue: ${cmd}</p>`;
+                        terminalOutput.innerHTML += '<p class="terminal-prompt">> <span class="terminal-input" contenteditable="true"></span><span class="terminal-cursor">_</span></p>';
+                    }
+                }
+                
+                document.querySelector('.terminal-input').focus();
+            }
+        });
+
+        // Project Comments
+        document.querySelectorAll('.comment-form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const textarea = form.querySelector('textarea');
+                const comment = textarea.value;
+                
+                if (comment.trim()) {
+                    const commentsList = form.previousElementSibling;
+                    const newComment = document.createElement('div');
+                    newComment.className = 'comment';
+                    newComment.innerHTML = `
+                        <div class="comment-author">
+                            <img src="https://files.catbox.moe/6fonyx.jpeg" alt="User">
+                            <span>Visiteur</span>
+                        </div>
+                        <div class="comment-text">${comment}</div>
+                        <div class="comment-date">À l'instant</div>
+                    `;
+                    
+                    commentsList.appendChild(newComment);
+                    textarea.value = '';
+                    
+                    showNotification('Commentaire ajouté!', 'success');
+                }
+            });
+        });
+
+        // Project Filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Reading Progress
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.blog-card').forEach(card => {
+                const article = card.querySelector('.blog-content');
+                const progressBar = card.querySelector('.reading-progress-bar');
+                
+                if (article && progressBar) {
+                    const articleHeight = article.offsetHeight;
+                    const articleTop = article.offsetTop;
+                    const scrollPosition = window.scrollY;
+                    
+                    if (scrollPosition >= articleTop) {
+                        const progress = ((scrollPosition - articleTop) / articleHeight) * 100;
+                        progressBar.style.width = `${Math.min(progress, 100)}%`;
+                    }
+                }
+            });
+        });
+
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Theme Customizer
+        const themeCustomizer = document.querySelector('.theme-customizer');
+        const customizerToggle = document.querySelector('.customizer-toggle');
+        
+        customizerToggle.addEventListener('click', () => {
+            themeCustomizer.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const color = option.getAttribute('data-color');
+                document.documentElement.style.setProperty('--primary', `#${color}`);
+                document.documentElement.style.setProperty('--primary-dark', `#${darkenColor(color, 20)}`);
+                document.documentElement.style.setProperty('--secondary', `#${lightenColor(color, 20)}`);
+                
+                showNotification('Couleur du thème mise à jour!', 'success');
+            });
+        });
+        
+        function darkenColor(hex, percent) {
+            // Conversion hex vers RGB
+            let r = parseInt(hex.substring(0, 2), 16);
+            let g = parseInt(hex.substring(2, 4), 16);
+            let b = parseInt(hex.substring(4, 6), 16);
+            
+            // Assombrir
+            r = Math.floor(r * (100 - percent) / 100);
+            g = Math.floor(g * (100 - percent) / 100);
+            b = Math.floor(b * (100 - percent) / 100);
+            
+            // Conversion RGB vers hex
+            r = r.toString(16).padStart(2, '0');
+            g = g.toString(16).padStart(2, '0');
+            b = b.toString(16).padStart(2, '0');
+            
+            return r + g + b;
+        }
+        
+        function lightenColor(hex, percent) {
+            // Conversion hex vers RGB
+            let r = parseInt(hex.substring(0, 2), 16);
+            let g = parseInt(hex.substring(2, 4), 16);
+            let b = parseInt(hex.substring(4, 6), 16);
+            
+            // Éclaircir
+            r = Math.floor(r + (255 - r) * percent / 100);
+            g = Math.floor(g + (255 - g) * percent / 100);
+            b = Math.floor(b + (255 - b) * percent / 100);
+            
+            // Conversion RGB vers hex
+            r = r.toString(16).padStart(2, '0');
+            g = g.toString(16).padStart(2, '0');
+            b = b.toString(16).padStart(2, '0');
+            
+            return r + g + b;
+        }
+
+        // Search Functionality
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const searchContainer = document.querySelector('.search-container');
+        
+        searchBtn.addEventListener('click', () => {
+            searchContainer.classList.toggle('active');
+            if (searchContainer.classList.contains('active')) {
+                searchInput.focus();
+            } else {
+                document.getElementById('search-results').style.display = 'none';
+            }
+        });
+        
+        const searchContent = [
+            { title: "Services", text: "Tests d'intrusion avancés", link: "#services" },
+            { title: "Projets", text: "DEDSEC Tracker", link: "#projects" },
+            { title: "Blog", text: "Les 10 vulnérabilités les plus critiques en 2025", link: "#blog" },
+            { title: "Contact", text: "Envoyez-moi un message", link: "#contact" },
+            { title: "À propos", text: "Mon parcours et compétences", link: "#about" },
+            { title: "CV", text: "Télécharger mon CV", link: "https://torbrowser.com" }
+        ];
+        
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+        
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            const results = searchContent.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.text.toLowerCase().includes(query)
+            );
+            
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
+            
+            if (query && results.length) {
+                results.forEach(result => {
+                    const resultElement = document.createElement('a');
+                    resultElement.href = result.link;
+                    resultElement.className = 'search-result';
+                    resultElement.innerHTML = `
+                        <h5>${result.title}</h5>
+                        <p>${result.text}</p>
+                    `;
+                    resultsContainer.appendChild(resultElement);
+
+                    // Close menu when clicking a result
+                    resultElement.addEventListener('click', () => {
+                        searchContainer.classList.remove('active');
+                        document.getElementById('search-results').style.display = 'none';
+                    });
+                });
+                resultsContainer.style.display = 'block';
+            } else if (query) {
+                resultsContainer.innerHTML = '<p>Aucun résultat trouvé</p>';
+                resultsContainer.style.display = 'block';
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+        }
+
+        // Contact Form Submission
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !subject || !message) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+            
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                showNotification('Veuillez entrer une adresse email valide', 'error');
+                return;
+            }
+            
+            // Envoyer le formulaire (simulation)
+            contactForm.innerHTML = `
+                <div class="form-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Message envoyé avec succès!</h3>
+                    <p>Je vous répondrai dans les plus brefs délais.</p>
+                </div>
+            `;
+            
+            showNotification('Votre message a été envoyé avec succès', 'success');
+        });
+
+        // Download CV Tracking
+        document.getElementById('download-cv').addEventListener('click', () => {
+            // Envoyer une requête à un backend pour suivre le téléchargement
+            fetch('/track-download', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    item: 'cv',
+                    date: new Date().toISOString()
+                })
+            });
+            
+            showNotification('Téléchargement du CV commencé', 'success');
+        });
+
+        // Live Chat Button
+        const liveChatBtn = document.querySelector('.live-chat-btn');
+        const aiChatContainer = document.querySelector('.ai-chat-container');
+        
+        liveChatBtn.addEventListener('click', () => {
+            aiChatContainer.classList.toggle('active');
+        });
+
+        document.querySelector('.ai-chat-close').addEventListener('click', () => {
+            aiChatContainer.classList.remove('active');
+        });
+
+        // AI Chat Functionality
+        const aiResponses = {
+            "bonjour": "Bonjour! je suis un prototype pas encore complet developer par Hacker2806 qui peut t'aider en cybersecuriter",
+            "menaces": "Les principales menaces en 2025 incluent les attaques IA, les ransomwares ciblés et les vulnérabilités zero-day.",
+            "sécurité": "Pour sécuriser vos systèmes, je recommande: 1) Mises à jour régulières 2) Authentification à deux facteurs 3) Audit de sécurité annuel",
+            "services": "Je propose: tests d'intrusion, développement sécurisé, audits, formations et reverse engineering.",
+            "contact": "Vous pouvez me contacter par whatssapp: +509 43 24 3114 ou via le formulaire de contact.",
+            "aide": "Je peux vous aider avec: sécurité web, pentesting, cryptographie, malware analysis et plus. Posez-moi une question spécifique!",
+            "merci": "Je vous en prie! N'hésitez pas si vous avez d'autres questions."
+        };
+
+        document.querySelector('.ai-chat-input button').addEventListener('click', function() {
+            sendAiMessage();
+        });
+
+        document.querySelector('.ai-chat-input input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendAiMessage();
+            }
+        });
+
+        function sendAiMessage() {
+            const input = document.querySelector('.ai-chat-input input');
+            const message = input.value.toLowerCase();
+            const chatBox = document.querySelector('.ai-chat-messages');
+            
+            if (message.trim()) {
+                // Ajouter le message de l'utilisateur
+                chatBox.innerHTML += `<div class="user-message">${input.value}</div>`;
+                
+                // Réponse de l'IA
+                let response = "Désolé, je n'ai pas compris. Posez-moi une question sur la cybersécurité. Example: bonjour, menaces, sécurité, services, contact, aide, merci ";
+                
+                for (const [key, value] of Object.entries(aiResponses)) {
+                    if (message.includes(key)) {
+                        response = value;
+                        break;
+                    }
+                }
+                
+                setTimeout(() => {
+                    chatBox.innerHTML += `<div class="ai-message">${response}</div>`;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 500);
+                
+                input.value = '';
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+
+        // Article Full View
+        document.querySelectorAll('.blog-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const articleId = this.getAttribute('data-article');
+                document.querySelectorAll('.article-full').forEach(article => {
+                    article.style.display = 'none';
+                });
+                document.getElementById(articleId).style.display = 'block';
+                document.getElementById(articleId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        document.querySelectorAll('.close-article').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+            });
+        });
+
+        // Notification System
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas ${type === 'error' ? 'fa-exclamation-circle' : type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+                <button class="notification-close"><i class="fas fa-times"></i></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            });
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animer les sections au scroll
+        gsap.utils.toArray('section').forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1
+            });
+        });
+        
+        // Animation spéciale pour la hero section
+        gsap.from('.hero-title', {
+            duration: 1.5,
+            opacity: 0,
+            y: -50,
+            ease: "power3.out"
+        });
+        
+        // Animation des cartes de services
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                x: i % 2 === 0 ? -50 : 50,
+                duration: 0.8,
+                delay: i * 0.1
+            });
+        });
+
+        // Animation des compétences
+        gsap.utils.toArray('.skill-progress').forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            gsap.to(bar, {
+                width: `${width}%`,
+                scrollTrigger: {
+                    trigger: bar,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                duration: 1.5,
+                ease: "power3.out"
+            });
+        });
+
+        // Focus sur le champ d'entrée du terminal
+        document.querySelector('.terminal-input')?.focus();
+    </script>
+</body>
+</html>
