@@ -1,253 +1,497 @@
+<think>
+The user wants to update a portfolio website template.
+The main request is to replace the name "Hacker 2806" with "Mr_2806".
+The secondary request is to style it in a "new technology" mode (futuristic/tech/Cybersecurity theme).
+
+I need to:
+1.  Replace any instance of "Hacker 2806" (or similar) with "Mr_2806".
+2.  Review the provided HTML/CSS to see where "Hacker 2806" might be or where it should be placed.
+3.  Apply "new technology" styling (Cyberpunk/Futuristic):
+    *   Dark mode (already present, but can be enhanced).
+    *   Neon colors (Cyan, Purple, Green).
+    *   Glowing effects (box-shadows, text-shadows).
+    *   Modern fonts (maybe 'Orbitron' or 'Rajdhani' alongside 'Inter' or 'Fira Code').
+    *   Glassmorphism (backdrop-filter).
+    *   Animations.
+
+Looking at the provided code snippet:
+- The title is already `Mr_2806`.
+- The logo div is `.logo` (content not explicitly shown in the snippet provided in the prompt *before* the CSS, but usually contains the name).
+- I need to make sure the visible name is "Mr_2806".
+
+The provided code ends abruptly with `.timeline-item::after { conte`. I need to complete this CSS and provide the rest of the HTML structure if implied (like a footer), but mostly just fix the existing structure and style it.
+
+**Styling Strategy for "New Technology" Mode:**
+- **Background:** Dark, deep blue/black (`#050505` or `#0a0a12`).
+- **Accents:** Neon Cyan (`#00f3ff`) and Electric Purple (`#bc13fe`).
+- **Typography:** 'Space Grotesk' or 'Orbitron' for headers, 'Inter' or 'Fira Code' for body.
+- **UI Elements:**
+    - Glowing borders.
+    - Scanlines or grid background.
+    - Floating elements.
+    - Terminal-like aesthetics.
+
+Let's modify the CSS and HTML.
+
+**Modifications:**
+1.  **HTML Structure**: Ensure `<h1>` and `.logo` reflect "Mr_2806".
+2.  **CSS**:
+    - Update `:root` colors to be more "cyber".
+    - Add a background grid animation.
+    - Enhance the Hero section with a more tech-heavy look.
+    - Improve the Timeline and CV sections with glassmorphism.
+    - Add a "Typing" effect or similar dynamic element if possible, or just smooth fade-ins.
+    - Fix the broken CSS block at the end.
+
+Let's assemble the code.
+
+*Note on the input:* The user provided code has a cut-off at `.timeline-item::after { conte`. I will assume this was intended to be `.timeline-item::after { content: ''; ... }` and complete it.
+
+I will also update the `h1` gradient to match a more "cyber" palette (Cyan to Purple).
+
+**Specific Changes:**
+- **Logo**: Explicitly set to "Mr_2806".
+- **Hero Title**: Explicitly set to "Mr_2806".
+- **Theme**: "Cyberpunk/Future".
+
+Let's write the code.
+</think> **Mr_2806**, une refonte complète du design pour un style "Nouvelle Technologie" (Cyberpunk / Futuriste), ainsi que la correction de la partie CSS incomplète.
+
+J'ai ajouté des effets de grille animée en arrière-plan, des couleurs néon (Cyan/Violet), de la glassmorphism (effets de verre flouté) et une typographie plus moderne.
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mr_2806 | Cybersécurité & Développement</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr_2806 | Expert en Cybersécurité & Développement Sécurisé</title>
+    <!-- Google Fonts pour un look futuriste -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Space+Grotesk:wght@300;500;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <!-- Animate.css et Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- VARIABLES & BASE --- */
+        :root {
+            --bg-dark: #050505;
+            --bg-card: rgba(20, 20, 30, 0.6);
+            --primary: #00f3ff; /* Cyan Neon */
+            --primary-glow: rgba(0, 243, 255, 0.4);
+            --secondary: #7000ff; /* Violet Neon */
+            --accent: #00ff88;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
+            --glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.1);
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', 'Space Grotesk', sans-serif;
+        }
 
-<style>
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-/* ================= ROOT ================= */
-:root {
-    --primary: #2563eb;
-    --accent: #00ff88;
-    --dark: #0f172a;
-    --darker: #020617;
-}
+        /* --- BACKGROUND GRID ANIMATION --- */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+            animation: gridMove 20s linear infinite;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+        .bg-glow {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(112, 0, 255, 0.15) 0%, transparent 50%);
+            z-index: -2;
+            animation: pulseGlow 10s ease-in-out infinite alternate;
+        }
 
-body {
-    background: var(--dark);
-    color: white;
-    overflow-x: hidden;
-    position: relative;
-}
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
 
-/* Background animé */
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle at center, rgba(37,99,235,0.08), transparent 70%);
-    animation: rotateBg 20s linear infinite;
-    z-index: -1;
-}
+        @keyframes pulseGlow {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
 
-@keyframes rotateBg {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-/* ================= NAVBAR ================= */
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            background: linear-gradient(90deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px var(--primary-glow));
+            margin-bottom: 20px;
+            line-height: 1;
+        }
 
-nav {
-    position: fixed;
-    width: 100%;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-}
+        h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
-    text-shadow: 0 0 10px rgba(37,99,235,0.7),
-                 0 0 20px rgba(0,255,136,0.4);
-}
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
+        p {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
 
-nav a {
-    text-decoration: none;
-    color: white;
-    position: relative;
-    transition: 0.3s;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
 
-nav a:hover {
-    color: var(--accent);
-}
+        /* --- UI ELEMENTS --- */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary);
+            background: transparent;
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            transition: all 0.3s ease;
+        }
 
-/* ================= HERO ================= */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            z-index: -1;
+            transition: width 0.3s ease;
+        }
 
-#hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-left: 10%;
-    position: relative;
-}
+        .btn:hover {
+            color: #000;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
 
-.hero-content {
-    z-index: 2;
-}
+        .btn:hover::before {
+            width: 100%;
+        }
 
-.hero-title {
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--primary);
-    text-shadow: 0 0 15px rgba(37,99,235,0.8);
-}
+        .btn-secondary {
+            color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary::before { background: var(--secondary); }
+        .btn-secondary:hover { box-shadow: 0 0 20px rgba(112, 0, 255, 0.4); }
 
-.hero-desc {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    max-width: 500px;
-    color: #ccc;
-}
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-glass);
+            background: rgba(5, 5, 5, 0.8);
+        }
 
-/* ================= BUTTON ================= */
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        
+        .logo span { color: var(--primary); }
 
-.btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 30px;
-    border-radius: 30px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.4s;
-    box-shadow: 0 0 15px rgba(0,255,136,0.5);
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(0,255,136,0.8);
-}
+        .nav-links a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #fff;
+            position: relative;
+        }
 
-/* ================= SECTIONS ================= */
+        .nav-links a:hover { color: var(--primary); }
 
-section {
-    padding: 100px 10%;
-}
+        /* --- HERO SECTION --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+        }
 
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: var(--accent);
-}
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
 
-/* ================= CARD ================= */
+        .hero-subtitle {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: fadeInUp 1s ease;
+        }
 
-.card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid rgba(37,99,235,0.2);
-    box-shadow: 0 0 15px rgba(37,99,235,0.15);
-    transition: 0.4s;
-}
+        .hero-desc {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: #ccc;
+            animation: fadeInUp 1.5s ease;
+        }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px rgba(0,255,136,0.4);
-}
+        /* --- SECTIONS --- */
+        section {
+            padding: 100px 10%;
+            position: relative;
+        }
 
-/* ================= FOOTER ================= */
+        /* --- ABOUT & CARDS --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: var(--darker);
-    color: #777;
-}
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-glass);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* ================= PARTICLES ================= */
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 243, 255, 0.1);
+            border-color: var(--primary);
+        }
 
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
-</style>
+        .skill-tag {
+            padding: 8px 20px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
+
+        /* --- CV SECTION --- */
+        #cv {
+            background: linear-gradient(180deg, var(--bg-dark), rgba(10,10,20,1));
+        }
+        
+        .cv-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .cv-frame {
+            width: 100%;
+            height: 600px;
+            border: 1px solid var(--border-glass);
+            background: #000;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .cv-frame::before {
+            content: 'CHARGEMENT CV...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary);
+            font-family: 'Fira Code';
+            z-index: 0;
+        }
+        
+        .cv-frame iframe {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--border-glass);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .timeline-item:nth-child(odd) { left: 0; animation-delay: 0.2s; }
+        .timeline-item:nth-child(even) { left: 50%; animation-delay: 0.4s; }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: var(--glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 15px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(112, 0, 255, 0.2);
+        }
+
+        .timeline-date {
+            font-family: 'Fira Code';
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: #020202;
+            color: #666;
+            font-family: 'Fira Code';
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .about-container, .cv-container { grid-template-columns: 1fr; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item:nth-child(even) { left: 0; }
+            nav { padding: 20px; }
+            .nav-links { display: none; } /* Mobile menu to be added */
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-    <div class="logo">
-        <i class="fa-solid fa-shield-halved"></i> Mr_2806
-    </div>
-    <ul>
-        <li><a href="#hero">Accueil</a></li>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
 
-<section id="hero">
-    <div id="particles-js"></div>
-    <div class="hero-content">
-        <h1 class="hero-title">Mr_2806</h1>
-        <p class="hero-desc">
-            Spécialiste en cybersécurité et développement sécurisé.
-            Passionné par les nouvelles technologies et la protection des systèmes numériques.
-        </p>
-        <a href="#about" class="btn">Découvrir</a>
-    </div>
-</section>
+    <!-- Navigation -->
+    <nav class="animate__animated animate__fadeInDown">
+        <div class="logo">Mr<span>_2806</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#cv">Parcours</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<section id="about">
-    <h2 class="section-title">À propos</h2>
-    <div class="card">
-        <p>
-            Je suis Mr_2806, expert en cybersécurité, analyse de vulnérabilités
-            et développement sécurisé. Mon objectif est de concevoir des systèmes
-            modernes, robustes et protégés contre les menaces numériques.
-        </p>
-    </div>
-</section>
-
-<section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="card">
-        <p>Email : contact@mr2806.com</p>
-        <p>Disponible pour projets et collaborations technologiques.</p>
-    </div>
-</section>
-
-<footer>
-    © 2026 Mr_2806 — Interface Technologique Sécurisée
-</footer>
-
-<script>
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80 },
-    size: { value: 3 },
-    color: { value: "#00ff88" },
-    line_linked: {
-      enable: true,
-      color: "#2563eb"
-    }
-  }
-});
-</script>
-
-</body>
-</html>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle animate__animated animate__fadeInUp">
+                < i class="fas fa-terminal"></i> Bienvenue dans le futur du code
+            </span>
+            <h1 class="animate__animated
