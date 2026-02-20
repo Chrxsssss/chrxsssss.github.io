@@ -10,13 +10,12 @@
 
 <style>
 
-/* ================= ROOT CYBER THEME ================= */
+/* ================= ROOT ================= */
 :root {
-    --neon-blue: #00f0ff;
-    --neon-pink: #ff00c8;
-    --dark: #050510;
-    --darker: #02020a;
-    --gradient: linear-gradient(135deg, #00f0ff, #ff00c8);
+    --primary: #2563eb;
+    --accent: #00ff88;
+    --dark: #0f172a;
+    --darker: #020617;
 }
 
 * {
@@ -30,6 +29,25 @@ body {
     background: var(--dark);
     color: white;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Background animé */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle at center, rgba(37,99,235,0.08), transparent 70%);
+    animation: rotateBg 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotateBg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* ================= NAVBAR ================= */
@@ -41,17 +59,17 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
 .logo {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: var(--neon-blue);
-    text-shadow: 0 0 10px var(--neon-blue),
-                 0 0 20px var(--neon-blue);
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(37,99,235,0.7),
+                 0 0 20px rgba(0,255,136,0.4);
 }
 
 nav ul {
@@ -64,21 +82,11 @@ nav a {
     text-decoration: none;
     color: white;
     position: relative;
+    transition: 0.3s;
 }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    left: 0;
-    bottom: -5px;
-    background: var(--gradient);
-    transition: 0.4s;
-}
-
-nav a:hover::after {
-    width: 100%;
+nav a:hover {
+    color: var(--accent);
 }
 
 /* ================= HERO ================= */
@@ -95,26 +103,18 @@ nav a:hover::after {
     z-index: 2;
 }
 
-.glitch {
+.hero-title {
     font-size: 4rem;
     font-weight: 900;
-    position: relative;
-    animation: glitch 1s infinite;
-}
-
-@keyframes glitch {
-    0% { text-shadow: 3px 3px var(--neon-blue); }
-    25% { text-shadow: -3px -3px var(--neon-pink); }
-    50% { text-shadow: 3px -3px var(--neon-blue); }
-    75% { text-shadow: -3px 3px var(--neon-pink); }
-    100% { text-shadow: 3px 3px var(--neon-blue); }
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(37,99,235,0.8);
 }
 
 .hero-desc {
     margin-top: 20px;
     font-size: 1.2rem;
     max-width: 500px;
-    color: #aaa;
+    color: #ccc;
 }
 
 /* ================= BUTTON ================= */
@@ -123,21 +123,21 @@ nav a:hover::after {
     display: inline-block;
     margin-top: 30px;
     padding: 15px 30px;
-    border: 2px solid var(--neon-blue);
-    color: var(--neon-blue);
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: black;
     text-decoration: none;
+    font-weight: bold;
     transition: 0.4s;
-    box-shadow: 0 0 10px var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0,255,136,0.5);
 }
 
 .btn:hover {
-    background: var(--neon-blue);
-    color: black;
-    box-shadow: 0 0 20px var(--neon-blue),
-                0 0 40px var(--neon-blue);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0,255,136,0.8);
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTIONS ================= */
 
 section {
     padding: 100px 10%;
@@ -146,25 +146,24 @@ section {
 .section-title {
     font-size: 2rem;
     margin-bottom: 40px;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    color: transparent;
+    color: var(--accent);
 }
 
-/* ================= ABOUT CARD ================= */
+/* ================= CARD ================= */
 
-.about-card {
+.card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(15px);
     padding: 40px;
     border-radius: 20px;
-    border: 1px solid rgba(0,240,255,0.2);
+    border: 1px solid rgba(37,99,235,0.2);
+    box-shadow: 0 0 15px rgba(37,99,235,0.15);
     transition: 0.4s;
 }
 
-.about-card:hover {
+.card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 30px rgba(0,240,255,0.3);
+    box-shadow: 0 0 25px rgba(0,255,136,0.4);
 }
 
 /* ================= FOOTER ================= */
@@ -176,7 +175,7 @@ footer {
     color: #777;
 }
 
-/* ================= PARTICLES BACKGROUND ================= */
+/* ================= PARTICLES ================= */
 
 #particles-js {
     position: absolute;
@@ -204,10 +203,10 @@ footer {
 <section id="hero">
     <div id="particles-js"></div>
     <div class="hero-content">
-        <h1 class="glitch">Mr_2806</h1>
+        <h1 class="hero-title">Mr_2806</h1>
         <p class="hero-desc">
-            Expert en cybersécurité & développement sécurisé.
-            Passionné par les technologies avancées et la protection des systèmes.
+            Spécialiste en cybersécurité et développement sécurisé.
+            Passionné par les nouvelles technologies et la protection des systèmes numériques.
         </p>
         <a href="#about" class="btn">Découvrir</a>
     </div>
@@ -215,25 +214,25 @@ footer {
 
 <section id="about">
     <h2 class="section-title">À propos</h2>
-    <div class="about-card">
+    <div class="card">
         <p>
-            Je suis Mr_2806, spécialisé en cybersécurité, analyse de vulnérabilités
+            Je suis Mr_2806, expert en cybersécurité, analyse de vulnérabilités
             et développement sécurisé. Mon objectif est de concevoir des systèmes
-            robustes et modernes adaptés aux nouvelles menaces numériques.
+            modernes, robustes et protégés contre les menaces numériques.
         </p>
     </div>
 </section>
 
 <section id="contact">
     <h2 class="section-title">Contact</h2>
-    <div class="about-card">
+    <div class="card">
         <p>Email : contact@mr2806.com</p>
-        <p>Disponible pour projets & collaborations technologiques.</p>
+        <p>Disponible pour projets et collaborations technologiques.</p>
     </div>
 </section>
 
 <footer>
-    © 2026 Mr_2806 — Cyber Technology Interface
+    © 2026 Mr_2806 — Interface Technologique Sécurisée
 </footer>
 
 <script>
@@ -241,10 +240,10 @@ particlesJS("particles-js", {
   particles: {
     number: { value: 80 },
     size: { value: 3 },
-    color: { value: "#00f0ff" },
+    color: { value: "#00ff88" },
     line_linked: {
       enable: true,
-      color: "#ff00c8"
+      color: "#2563eb"
     }
   }
 });
