@@ -26,25 +26,17 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-background:radial-gradient(circle at 20% 20%,#0f2027,#050816 60%);
+background:#050816;
 color:white;
 overflow-x:hidden;
 }
 
-/* Background animation */
-body::before{
-content:"";
+/* MATRIX BACKGROUND */
+canvas{
 position:fixed;
-width:200%;
-height:200%;
-background:linear-gradient(45deg,#00f5ff20,#00ff8820,#ff00ff20);
-animation:rotateBg 20s linear infinite;
+top:0;
+left:0;
 z-index:-1;
-}
-
-@keyframes rotateBg{
-0%{transform:rotate(0deg);}
-100%{transform:rotate(360deg);}
 }
 
 /* NAVBAR */
@@ -56,18 +48,17 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 50px;
-background:rgba(5,8,22,0.6);
+background:rgba(5,8,22,0.7);
 backdrop-filter:blur(15px);
 border-bottom:1px solid var(--border);
 z-index:1000;
 }
 
 .logo{
-font-family:'Orbitron',sans-serif;
+font-family:'Orbitron';
 font-size:1.5rem;
 color:var(--primary);
 font-weight:900;
-letter-spacing:2px;
 }
 
 nav ul{
@@ -79,22 +70,10 @@ gap:30px;
 nav ul li a{
 color:white;
 text-decoration:none;
-position:relative;
 }
 
-nav ul li a::after{
-content:"";
-position:absolute;
-bottom:-5px;
-left:0;
-width:0%;
-height:2px;
-background:var(--primary);
-transition:0.4s;
-}
-
-nav ul li a:hover::after{
-width:100%;
+nav ul li a:hover{
+color:var(--primary);
 }
 
 /* HERO */
@@ -138,7 +117,7 @@ color:#000;
 box-shadow:0 0 25px var(--primary);
 }
 
-/* SECTION */
+/* GLASS CARD */
 section{
 padding:120px 50px;
 }
@@ -151,21 +130,37 @@ color:var(--primary);
 text-align:center;
 }
 
-/* GLASS CARD */
 .glass{
 background:var(--glass);
 backdrop-filter:blur(15px);
 border:1px solid var(--border);
 border-radius:15px;
 padding:30px;
-transition:0.4s;
 max-width:800px;
 margin:auto;
 }
 
-.glass:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px #00f5ff50;
+/* FLOATING WHATSAPP */
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+box-shadow:0 0 20px #25D366;
+z-index:1000;
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
 }
 
 /* FOOTER */
@@ -175,21 +170,12 @@ padding:40px;
 background:#030712;
 border-top:1px solid var(--border);
 }
-
-footer p{
-opacity:0.6;
-}
-
-/* Responsive */
-@media(max-width:900px){
-nav ul{
-display:none;
-}
-}
 </style>
 </head>
 
 <body>
+
+<canvas id="matrix"></canvas>
 
 <nav>
 <div class="logo">Mr_2806</div>
@@ -209,7 +195,7 @@ display:none;
 <i class="fab fa-github"></i> GitHub
 </a>
 
-<a href="https://wa.me/50943243114" target="_blank" class="btn">
+<a href="https://wa.me/50943243114?text=Bonjour%20Mr_2806,%20je%20souhaite%20vous%20contacter." target="_blank" class="btn">
 <i class="fab fa-whatsapp"></i> WhatsApp
 </a>
 
@@ -230,7 +216,7 @@ Passionné par la cybersécurité et le développement sécurisé, je protège l
 <div class="glass" style="text-align:center">
 <p>Disponible pour collaborations et missions professionnelles.</p>
 
-<a href="https://wa.me/50943243114" target="_blank" class="btn">
+<a href="https://wa.me/50943243114?text=Bonjour%20Mr_2806,%20je%20souhaite%20vous%20contacter." target="_blank" class="btn">
 <i class="fab fa-whatsapp"></i> Me contacter sur WhatsApp
 </a>
 
@@ -241,5 +227,28 @@ Passionné par la cybersécurité et le développement sécurisé, je protège l
 <p>© 2026 Mr_2806 - Tous droits réservés</p>
 </footer>
 
-</body>
-</html>
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/50943243114?text=Bonjour%20Mr_2806,%20je%20souhaite%20vous%20contacter." 
+class="whatsapp-float" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+/* MATRIX EFFECT */
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = [];
+
+for(let x = 0; x < columns; x++)
+drops[x] = 1;
+
+function draw(){
+ctx.fillStyle = "rgba(5, 8, 22, 0.05)";
+ctx.fillRect(0,0,canvas.width,
