@@ -6,6 +6,7 @@
 <title>Mr_2806 | Expert en Cybersécurité & Développement Sécurisé</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{
@@ -30,7 +31,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* Animated Background */
+/* Background animation */
 body::before{
 content:"";
 position:fixed;
@@ -129,8 +130,6 @@ border:1px solid var(--primary);
 color:var(--primary);
 text-decoration:none;
 transition:0.4s;
-position:relative;
-overflow:hidden;
 }
 
 .btn:hover{
@@ -139,7 +138,7 @@ color:#000;
 box-shadow:0 0 25px var(--primary);
 }
 
-/* SECTION STYLE */
+/* SECTION */
 section{
 padding:120px 50px;
 }
@@ -160,43 +159,13 @@ border:1px solid var(--border);
 border-radius:15px;
 padding:30px;
 transition:0.4s;
+max-width:800px;
+margin:auto;
 }
 
 .glass:hover{
 transform:translateY(-10px);
 box-shadow:0 0 40px #00f5ff50;
-}
-
-/* ABOUT */
-.about-container{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
-
-.about-container img{
-width:100%;
-border-radius:15px;
-}
-
-/* SKILLS */
-.skill-bar{
-background:#111;
-border-radius:20px;
-overflow:hidden;
-margin-bottom:20px;
-}
-
-.skill-progress{
-height:10px;
-background:linear-gradient(90deg,#00f5ff,#00ff88);
-width:90%;
-animation:grow 2s ease;
-}
-
-@keyframes grow{
-from{width:0;}
 }
 
 /* FOOTER */
@@ -213,8 +182,8 @@ opacity:0.6;
 
 /* Responsive */
 @media(max-width:900px){
-.about-container{
-grid-template-columns:1fr;
+nav ul{
+display:none;
 }
 }
 </style>
@@ -227,7 +196,6 @@ grid-template-columns:1fr;
 <ul>
 <li><a href="#hero">Accueil</a></li>
 <li><a href="#about">À propos</a></li>
-<li><a href="#skills">Compétences</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
@@ -236,33 +204,24 @@ grid-template-columns:1fr;
 <div class="hero-content">
 <h1>Mr_2806</h1>
 <p>Expert en Cybersécurité & Développement Sécurisé</p>
-<a href="#contact" class="btn">Me Contacter</a>
+
+<a href="https://github.com/" target="_blank" class="btn">
+<i class="fab fa-github"></i> GitHub
+</a>
+
+<a href="https://wa.me/50943243114" target="_blank" class="btn">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+
 </div>
 </section>
 
 <section id="about">
 <h2 class="section-title">À propos</h2>
-<div class="about-container">
-<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="">
 <div class="glass">
 <p>
 Passionné par la cybersécurité et le développement sécurisé, je protège les systèmes et développe des solutions robustes.
 </p>
-</div>
-</div>
-</section>
-
-<section id="skills">
-<h2 class="section-title">Compétences</h2>
-<div class="glass">
-<p>Cybersécurité</p>
-<div class="skill-bar"><div class="skill-progress"></div></div>
-
-<p>Développement Sécurisé</p>
-<div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
-
-<p>Analyse & Pentest</p>
-<div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
 </div>
 </section>
 
@@ -270,7 +229,11 @@ Passionné par la cybersécurité et le développement sécurisé, je protège l
 <h2 class="section-title">Contact</h2>
 <div class="glass" style="text-align:center">
 <p>Disponible pour collaborations et missions professionnelles.</p>
-<a href="#" class="btn">Envoyer un message</a>
+
+<a href="https://wa.me/50943243114" target="_blank" class="btn">
+<i class="fab fa-whatsapp"></i> Me contacter sur WhatsApp
+</a>
+
 </div>
 </section>
 
