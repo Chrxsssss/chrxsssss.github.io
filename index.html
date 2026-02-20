@@ -1,181 +1,304 @@
-            background: var(--primary);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr_2806 | Expert en Cybersécurité & Développement Sécurisé</title>
 
-        /* Responsive général */
-        @media (max-width: 1024px) {
-            .about-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            .about-img-container {
-                width: 300px;
-                height: auto;
-            }
-        }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100% - 70px);
-                background: var(--dark);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.3s ease;
-            }
-            .nav-links.active {
-                left: 0;
-            }
-            .nav-links li {
-                margin: 20px 0;
-            }
-            .menu-btn {
-                display: block;
-            }
-        }
+<style>
+:root{
+--primary:#00f5ff;
+--accent:#00ff88;
+--dark:#050816;
+--glass:rgba(255,255,255,0.05);
+--border:rgba(0,255,255,0.2);
+}
 
-        /* Animations supplémentaires */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Inter',sans-serif;
+}
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0,255,136,0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(0,255,136,0); }
-            100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
-        }
-    </style>
+body{
+background:radial-gradient(circle at 20% 20%,#0f2027,#050816 60%);
+color:white;
+overflow-x:hidden;
+}
+
+/* Background animation */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:linear-gradient(45deg,#00f5ff20,#00ff8820,#ff00ff20);
+animation:rotateBg 20s linear infinite;
+z-index:-1;
+}
+
+@keyframes rotateBg{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+background:rgba(5,8,22,0.6);
+backdrop-filter:blur(15px);
+border-bottom:1px solid var(--border);
+z-index:1000;
+}
+
+.logo{
+font-family:'Orbitron',sans-serif;
+font-size:1.5rem;
+color:var(--primary);
+font-weight:900;
+letter-spacing:2px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+position:relative;
+}
+
+nav ul li a::after{
+content:"";
+position:absolute;
+bottom:-5px;
+left:0;
+width:0%;
+height:2px;
+background:var(--primary);
+transition:0.4s;
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+/* HERO */
+#hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+background:url('images/hacking-bg.jpg') center/cover no-repeat;
+}
+
+.hero-content h1{
+font-family:'Orbitron';
+font-size:clamp(2.5rem,6vw,4rem);
+background:linear-gradient(90deg,#00f5ff,#00ff88);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero-content p{
+margin-top:20px;
+font-size:1.2rem;
+opacity:0.8;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+border-radius:50px;
+border:1px solid var(--primary);
+color:var(--primary);
+text-decoration:none;
+transition:0.4s;
+}
+
+.btn:hover{
+background:var(--primary);
+color:#000;
+box-shadow:0 0 25px var(--primary);
+}
+
+/* SECTION */
+section{
+padding:120px 50px;
+}
+
+.section-title{
+font-family:'Orbitron';
+font-size:2rem;
+margin-bottom:40px;
+color:var(--primary);
+text-align:center;
+}
+
+/* GLASS CARD */
+.glass{
+background:var(--glass);
+backdrop-filter:blur(15px);
+border:1px solid var(--border);
+border-radius:15px;
+padding:30px;
+transition:0.4s;
+max-width:900px;
+margin:auto;
+}
+
+.glass:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px #00f5ff50;
+}
+
+/* Console Hacker */
+.console {
+font-family:'Orbitron', monospace;
+color:#00ff88;
+background:#000;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 15px #00ff88;
+margin-top:30px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+background:#030712;
+border-top:1px solid var(--border);
+}
+
+footer p{
+opacity:0.6;
+}
+
+/* Responsive */
+@media(max-width:900px){
+nav ul{
+display:none;
+}
+}
+</style>
 </head>
+
 <body>
 
-<!-- Navigation -->
 <nav>
-    <div class="logo">
-        <img src="https://via.placeholder.com/40" alt="Logo">
-        Mr_2806
-    </div>
-    <ul class="nav-links">
-        <li><a href="#hero"><span>01.</span>Accueil</a></li>
-        <li><a href="#about"><span>02.</span>À propos</a></li>
-        <li><a href="#cv"><span>03.</span>CV</a></li>
-        <li><a href="#timeline"><span>04.</span>Timeline</a></li>
-    </ul>
-    <div class="menu-btn">
-        <div class="menu-btn__burger"></div>
-    </div>
+<div class="logo">Mr_2806</div>
+<ul>
+<li><a href="#hero">Accueil</a></li>
+<li><a href="#about">À propos</a></li>
+<li><a href="#skills">Compétences</a></li>
+<li><a href="#projects">Projets</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
-<!-- Hero Section -->
 <section id="hero">
-    <div class="container hero-content">
-        <div class="hero-subtitle">Bonjour, je suis Mr_2806</div>
-        <h1>Expert en Cybersécurité & Développement Sécurisé</h1>
-        <p class="hero-desc">Je protège vos systèmes et développe des solutions sécurisées et performantes.</p>
-        <div class="btn-group">
-            <button class="btn btn-primary"><i class="fas fa-user"></i>Mon Profil</button>
-            <button class="btn btn-secondary"><i class="fas fa-download"></i>Télécharger CV</button>
-        </div>
-    </div>
-    <i class="fas fa-chevron-down scroll-down"></i>
+<div class="hero-content">
+<h1>Mr_2806</h1>
+<p>Expert en Cybersécurité & Développement Sécurisé</p>
+
+<a href="https://github.com/" target="_blank" class="btn">
+<i class="fab fa-github"></i> GitHub
+</a>
+
+<a href="https://wa.me/50943243114" target="_blank" class="btn">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+
+<div class="console">
+> Initialisation du système... <br>
+> Scan des vulnérabilités en cours... <br>
+> Accès sécurisé établi.
+</div>
+
+</div>
 </section>
 
-<!-- About Section -->
 <section id="about">
-    <div class="container about-content">
-        <div class="about-img-container">
-            <div class="about-img">
-                <img src="https://via.placeholder.com/350" alt="Photo de profil">
-            </div>
-        </div>
-        <div class="about-text">
-            <p>Passionné par la cybersécurité et le développement sécurisé depuis plusieurs années. Je travaille sur des projets qui allient performance et sécurité.</p>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>Linux</li>
-                <li>PenTesting</li>
-            </ul>
-        </div>
-    </div>
+<h2 class="section-title">À propos</h2>
+<div class="glass">
+<p>
+Passionné par la cybersécurité et le développement sécurisé, je protège les systèmes et développe des solutions robustes.
+</p>
+</div>
 </section>
 
-<!-- CV Section -->
-<section id="cv">
-    <div class="container cv-viewer">
-        <iframe src="https://docs.google.com/document/d/e/2PACX-1vQcvzOjPqvBd7Z-P4h-XXXXXXXXXX/pub?embedded=true" frameborder="0"></iframe>
-        <div class="cv-skills">
-            <h3>Compétences</h3>
-            <ul>
-                <li>Développement sécurisé</li>
-                <li>Audit de sécurité</li>
-                <li>Réseaux et infrastructure</li>
-                <li>Analyse de vulnérabilités</li>
-            </ul>
-        </div>
-    </div>
+<section id="skills">
+<h2 class="section-title">Compétences</h2>
+<div class="glass">
+<ul>
+<li>Pentest & Tests d’intrusion</li>
+<li>Sécurité réseau & Cloud</li>
+<li>Développement sécurisé</li>
+<li>Analyse forensique</li>
+<li>Cryptographie & Protection des données</li>
+</ul>
+</div>
 </section>
 
-<!-- Timeline Section -->
-<section id="timeline">
-    <div class="container">
-        <h2 class="section-header"><span>04.</span>Timeline<div class="line"></div></h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2022</div>
-                    <div class="timeline-title">Certification Cybersécurité</div>
-                    <div class="timeline-desc">Obtention de la certification CEH et participation à plusieurs projets de pentest.</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2023</div>
-                    <div class="timeline-title">Développement Sécurisé</div>
-                    <div class="timeline-desc">Création de solutions sécurisées pour des clients professionnels et audit d’infrastructure.</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-title">Projet Open Source</div>
-                    <div class="timeline-desc">Participation à des projets open source pour améliorer la sécurité des applications web.</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section id="projects">
+<h2 class="section-title">Projets</h2>
+<div class="glass">
+<p>Quelques réalisations :</p>
+<ul>
+<li>Audit de sécurité pour une entreprise fintech</li>
+<li>Développement d’outils open-source de monitoring</li>
+<li>Simulation de cyberattaques pour formation</li>
+</ul>
+</div>
 </section>
 
-<script>
-    // Menu toggle
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    menuBtn.addEventListener('click', () => {
-        menuBtn.classList.toggle('open');
-        navLinks.classList.toggle('active');
-    });
+<section id="services">
+<h2 class="section-title">Services</h2>
+<div class="glass">
+<p>Je propose :</p>
+<ul>
+<li>Audit de sécurité complet</li>
+<li>Formation en cybersécurité</li>
+<li>Développement d’applications sécurisées</li>
+<li>Conseil en protection des infrastructures critiques</li>
+</ul>
+</div>
+</section>
 
-    // Scroll timeline animation
-    const items = document.querySelectorAll('.timeline-item');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.3 });
-    items.forEach(item => observer.observe(item));
-</script>
+<section id="contact">
+<h2 class="section-title">Contact</h2>
+<div class="glass" style="text-align:center">
+<p>Disponible pour collaborations et missions professionnelles.</p>
+
+<a href="https://wa.me/50943243114" target="_blank" class="btn">
+<i class="fab fa-whatsapp"></i> Me contacter sur WhatsApp
+</a>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Mr_2806 - Tous droits réservés</p>
+</footer>
+
 </body>
 </html>
